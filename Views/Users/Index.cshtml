@@ -1,0 +1,45 @@
+﻿@model IEnumerable<User>
+
+
+<h1>All User</h1>
+
+
+<a asp-controller="Users" asp-action="Register" class="btn btn-secondary my-3">NEW User</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.UserId)</td>
+            <td>@Html.DisplayNameFor(model => model.UserName)</td>
+            <td>@Html.DisplayNameFor(model => model.Password)</td>
+            <td>@Html.DisplayNameFor(model => model.IsActive)</td>
+            <td>@Html.DisplayNameFor(model => model.CreateAt)</td>
+            <td>Action</td>
+
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.UserId</td>
+                <td>@item.UserName</td>
+                <td>@item.Password</td>
+                <td>@item.IsActive</td>
+                <td>@item.CreateAt</td>
+                <td>
+                    <a asp-controller="Users" asp-action="isActive" class="" asp-route-UserId="@item.UserId">Update</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+
+
+
+
